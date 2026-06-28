@@ -1,0 +1,19 @@
+# Executável gerado pelo Makefile
+vm
+vm.exe
+
+# Arquivos objeto e binários
+*.o
+*.out
+
+# Saídas de teste
+output_*.txt
+*.log
+
+# Configurações locais
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
