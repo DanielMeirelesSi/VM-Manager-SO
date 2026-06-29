@@ -4,9 +4,10 @@ Simulador de gerenciamento de memória virtual desenvolvido em C para o Trabalho
 
 O programa realiza a tradução de endereços lógicos para endereços físicos usando TLB, tabela de páginas, paginação por demanda, tratamento de page faults e substituição de páginas com LRU aproximado usando aging counters.
 
-## Autor
+## Autores
 
 Daniel Meireles
+Eduardo Nobre
 
 ## Objetivo
 
