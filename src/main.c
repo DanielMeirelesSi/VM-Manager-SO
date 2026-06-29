@@ -25,17 +25,12 @@ int main(void)
     int logical_address;
 
     while (scanf("%d", &logical_address) == 1) {
-        count_address();
+        logical_address = logical_address & 0xFFFF;
 
-        /*
-         * O arquivo de entrada possui inteiros de 32 bits.
-         * Apenas os 16 bits menos significativos devem ser considerados.
-         * TODO: Implementar lógica de obtenção do número da página 
-         * e do offset.
-         */
-        logical_address = 0;
-        int page = 0;
-        int offset = 0;
+        int page = (logical_address >> 8) & 0xFF;
+        int offset = logical_address & 0xFF;
+
+        count_address();
 
         int frame = tlb_lookup(page);
 
@@ -52,20 +47,10 @@ int main(void)
             tlb_insert(page, frame);
         }
 
-        /*
-         * TODO:
-         * A política de atualização do LRU aproximado pode ser ajustada.
-         * Nesta versão-base, a página acessada é marcada como referenciada
-         * e o aging é atualizado a cada acesso.
-         */
-
         page_table_set_reference(page);
         page_table_update_aging();
-        
-        /*
-        * TODO: Implementar cálculo do physical_address.
-        */
-        int physical_address = 0;
+
+        int physical_address = frame * FRAME_SIZE + offset;
         signed char value = read_memory(frame, offset);
 
         printf("Logical address: %d Physical address: %d Value: %d\n",
