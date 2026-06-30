@@ -6,8 +6,8 @@ O programa realiza a tradução de endereços lógicos para endereços físicos 
 
 ## Autores
 
-Daniel Meireles
-Eduardo Nobre
+Daniel Meireles Aquino Jorge
+Eduardo Nobre de Oliveira Lino 
 
 ## Objetivo
 
